@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My Spotify Profile</title>
+    <script src="src/script.ts" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .text-spotify-green { color: #1db954; }
+        .hover\:text-green-400:hover { color: #4ade80; }
+        .bg-spotify-green { background-color: #1db954; }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen font-sans">
+    <div class="container mx-auto px-6 py-8">
+        <h1 class="text-4xl font-bold text-spotify-green mb-8 text-center">Display your Spotify profile data</h1>
+
+        <!-- Section Bouton Connexion -->
+        <div id="loginSection" class="mb-8"></div>
+
+        <!-- Section Profil utilisateur -->
+        <section id="profile" class="bg-gray-900 rounded-lg p-8 max-w-2xl mx-auto shadow-2xl">
+            <h2 class="text-2xl font-semibold mb-6 text-center">
+                Logged in as <span id="displayName" class="text-spotify-green font-bold"></span>
+            </h2>
+
+            <div class="flex justify-center mb-8">
+                <span id="avatar" class="block"></span>
+            </div>
+
+            <ul class="space-y-4">
+                <li class="flex items-center p-3 bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-300 font-medium w-32">User ID:</span>
+                    <span id="id" class="text-white"></span>
+                </li>
+                <li class="flex items-center p-3 bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-300 font-medium w-32">Email:</span>
+                    <span id="email" class="text-white"></span>
+                </li>
+                <li class="flex items-center p-3 bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-300 font-medium w-32">Spotify URI:</span>
+                    <a id="uri" href="#" target="_blank" class="text-spotify-green hover:text-green-400 underline transition-colors"></a>
+                </li>
+                <li class="flex items-center p-3 bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-300 font-medium w-32">Link:</span>
+                    <a id="url" href="#" target="_blank" class="text-spotify-green hover:text-green-400 underline transition-colors"></a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section Artistes suivis -->
+        <section id="artists" class="bg-gray-900 rounded-lg p-8 max-w-6xl mx-auto mt-8 shadow-2xl">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-spotify-green">Followed Artists</h2>
+            <div id="artistsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+        </section>
+
+        <!-- Section Recherche -->
+        <section id="search" class="bg-gray-900 rounded-lg p-8 max-w-6xl mx-auto mt-8 shadow-2xl">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-spotify-green">Search Music</h2>
+            <div class="flex gap-4 mb-6">
+                <select id="searchType" class="bg-gray-800 text-white p-3 rounded-lg border border-gray-700 focus:border-spotify-green focus:outline-none">
+                    <option value="track">Songs</option>
+                    <option value="artist">Artists</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Search for songs or artists..."
+                       class="flex-1 bg-gray-800 text-white p-3 rounded-lg border border-gray-700 focus:border-spotify-green focus:outline-none">
+                <button id="searchBtn"
+                        class="bg-spotify-green hover:bg-green-600 text-black font-medium py-3 px-6 rounded-lg transition-colors">
+                    Search
+                </button>
+            </div>
+            <div id="searchResults" class="grid grid-cols-1 gap-4"></div>
+        </section>
+    </div>
+</body>
+</html>
