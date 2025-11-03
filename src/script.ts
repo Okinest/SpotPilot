@@ -1,7 +1,7 @@
 import { redirectToAuthCodeFlow, getAccessToken } from "./authCodeWithPkce";
 import { TokenManager } from "./tokenManager";
 
-const clientId = ""; // Your Spotify Client ID here
+const clientId = "YOUR_CLIENT_ID_HERE";
 
 async function initializeApp() {
     let accessToken = TokenManager.getValidToken();
